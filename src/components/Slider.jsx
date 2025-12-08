@@ -1,18 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
-import getTrendingVideos from "../Services/GlobalApi";
-import "./Slider.css";
+import "./no-scrollbar.css";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
+import GlobalApi from "../Services/GlobalApi";
 
 const screenWidth = window.innerWidth;
 const Slider = () => {
   const [movieList, setMovieList] = useState([]);
 
   const elementRef = useRef(null);
-  const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await getTrendingVideos;
+      const response = await GlobalApi.getTrendingVideos;
       setMovieList(response.data.results);
     };
     fetchData();
@@ -46,7 +45,7 @@ const Slider = () => {
           return (
             <img
               key={item.id}
-              src={IMAGE_BASE_URL + item.backdrop_path}
+              src={GlobalApi.IMAGE_BASE_URL + item.backdrop_path}
               alt="movie image"
               className=" min-w-full md:h-[310px] object-cover object-center mr-5 rounded-md hover:border-2 border-gray-400 transition-all duration-100 ease-in"
             />
