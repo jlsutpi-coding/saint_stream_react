@@ -1,0 +1,93 @@
+import React, { useEffect, useState } from "react";
+import Header from "../components/Header";
+import GlobalApi from "../Services/GlobalApi";
+import { useParams } from "react-router-dom";
+import GenreList from "../Constant/GenreList";
+
+const MovieDetail = () => {
+  const { movieId } = useParams();
+  const [movieDetail, setMovieDetail] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await GlobalApi.getMovieDeatail(movieId);
+      setMovieDetail(response.data);
+    };
+    fetchData();
+  }, [movieId]);
+  if (!movieDetail) {
+    return null;
+  }
+
+  return (
+    <div className="h-screen">
+      {/* <div className="fixed top-0 left-0 w-full z-20"> */}
+      <div className="fixed top-0 z-20 left-0 w-full bg-linear-to-b from-[#0d0d0d] to-tarnsparent">
+        <Header />
+      </div>
+
+      <div className=" relative w-full overflow-hidden">
+        {/* Background Image */}
+        <img
+          src={`${GlobalApi.IMAGE_BASE_URL}/${movieDetail?.backdrop_path}`}
+          className="w-full h-[600px] object-cover"
+          alt=""
+        />
+
+        {/* Gradient overlay */}
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div> */}
+        <div className="absolute bottom-0 left-0 w-full h-[200px] bg-linear-to-b from-transparent to-[#131520]" />
+        {/* Content */}
+        <div className="absolute bottom-10 left-0 w-full px-12">
+          <div className="flex items-end justify-between w-full">
+            {/* LEFT SECTION */}
+            <div className="text-white max-w-xl space-y-4">
+              <p className="px-3 py-auto w-fit flex items-center py-1  bg-black rounded-xl text-sm">
+                {movieDetail.release_date && "movie"}
+              </p>
+
+              <h1 className="text-4xl font-bold">
+                {movieDetail.original_title}
+              </h1>
+
+              <p className="text-gray-300 text-sm">
+                <span>
+                  {new Date(movieDetail.release_date).getFullYear()} .
+                </span>
+                {movieDetail.genres.map((item) => (
+                  <span className=" pr-2" key={item.id}>
+                    {item.name}
+                  </span>
+                ))}
+              </p>
+
+              <div className="flex gap-4">
+                <button className="cursor-pointer px-6 py-3 rounded-lg bg-green-600 text-white font-semibold">
+                  Continue Watching
+                </button>
+                <button className="cursor-pointer px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-white">
+                  Add Watchlist
+                </button>
+              </div>
+            </div>
+
+            {/* RIGHT SECTION */}
+            <div className="flex gap-4">
+              <button className="cursor-pointer px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-white">
+                Download
+              </button>
+              <button className="cursor-pointer px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-white">
+                Share
+              </button>
+              <button className="cursor-pointer px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-white">
+                Like
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MovieDetail;

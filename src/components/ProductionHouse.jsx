@@ -43,7 +43,6 @@ const ProductionHouse = () => {
 
   return (
     <div className="flex gap-2 md:gap-5 p-2 px-5  md:px-16">
-      {/* <img src={DisneyLogo} alt="" /> */}
       {productionHouseLists.map((item) => (
         <div
           key={item.id}

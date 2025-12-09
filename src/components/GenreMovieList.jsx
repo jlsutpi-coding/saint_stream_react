@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import GenreList from "../Constant/GenreList";
 import MovieList from "./MovieList";
 

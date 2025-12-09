@@ -15,4 +15,13 @@ const getTrendingVideos = axios.get(
 const getMovieByGenreId = (id) => {
   return axios.get(`${movieGenreBaseUrl}?api_key=${apiKey}&with_genres=${id}`);
 };
-export default { getTrendingVideos, getMovieByGenreId, IMAGE_BASE_URL };
+// https://api.themoviedb.org/3/movie/1083637?api_key=aa1c1def5cdf04d3c70f27af3bfddad6
+const getMovieDeatail = (id) => {
+  return axios.get(`${movieBaseUrl}/movie/${id}?api_key=${apiKey}`);
+};
+export default {
+  getTrendingVideos,
+  getMovieByGenreId,
+  IMAGE_BASE_URL,
+  getMovieDeatail,
+};

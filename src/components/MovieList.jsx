@@ -2,12 +2,9 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import GlobalApi from "../Services/GlobalApi";
 import "./no-scrollbar.css";
 import MovieCard from "./MovieCard";
-import {
-  IoChevronBack,
-  IoChevronBackOutline,
-  IoChevronForwardOutline,
-} from "react-icons/io5";
+import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import LargeMovieCard from "./LargeMovieCard";
+import { Link } from "react-router-dom";
 
 const screenWidth = window.innerWidth;
 
@@ -50,13 +47,13 @@ const MovieList = ({ genreId, index }) => {
         className="flex overflow-x-auto gap-10 no-scrollbar  pt-5 pb-10 px-3 scroll-smooth"
       >
         {movieList.map((item) => (
-          <Fragment key={item.id}>
+          <Link className=" flex" to={`/movie/${item.id}`} key={item.id}>
             {index % 3 === 0 ? (
               <LargeMovieCard item={item} />
             ) : (
               <MovieCard item={item} />
             )}
-          </Fragment>
+          </Link>
         ))}
       </div>
       {/* right arrow */}

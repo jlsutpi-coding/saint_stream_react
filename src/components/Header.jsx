@@ -9,12 +9,13 @@ import {
 import { HiPlus, HiDotsVertical } from "react-icons/hi";
 import HeaderItem from "./HeaderItem";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
 
   const menu = [
-    { name: "HOME", icon: HiHome },
+    { name: "HOME", icon: HiHome, link: "/" },
     { name: "SEARCH", icon: HiMagnifyingGlass },
     { name: "WATCH LIST", icon: HiPlus },
     { name: "ORIGINALS", icon: HiStar },
@@ -22,15 +23,17 @@ const Header = () => {
     { name: "SERIES", icon: HiTv },
   ];
   return (
-    <div className=" flex items-center  justify-between p-5">
+    <div className=" flex items-center  justify-between p-5 bg-transparent">
       {/* Navbar left section */}
       <div className=" flex gap-8 items-center">
         {/* Disney Logo Home Logo */}
-        <img
-          src={Disney_Logo}
-          className=" w-10 md:w-[100px] object-cover "
-          alt=""
-        />
+        <Link to={"/"}>
+          <img
+            src={Disney_Logo}
+            className=" w-10 md:w-[100px] object-cover "
+            alt=""
+          />
+        </Link>
 
         {/* Navbar for large device */}
         <div className=" hidden md:flex gap-8 items-center">

@@ -1,5 +1,3 @@
-import React from "react";
-
 /* eslint-disable no-unused-vars */
 const HeaderItem = ({ name, Icon }) => {
   return (
