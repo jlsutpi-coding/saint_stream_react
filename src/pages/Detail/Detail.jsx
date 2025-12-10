@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import DetailInformation from "./DetailInformation";
 import Similar from "./Similar";
 import GlobalApi from "../../services/GlobalApi";
+import Footer from "../../components/Footer";
 
 const Detail = () => {
   const { movie_id, media_type } = useParams();
@@ -94,6 +95,7 @@ const Detail = () => {
       </div>
       <DetailInformation detail={detail} media_type={media_type} />
       <Similar media_type={media_type} id={detail.id} />
+      <Footer />
     </div>
   );
 };

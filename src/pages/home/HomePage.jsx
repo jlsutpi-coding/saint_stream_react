@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import Slider from "./Slider";
 import ProductionHouse from "./ProductionHouse";
 import GenreMovieList from "./GenreMovieList";
+import Footer from "../../components/Footer";
 
 const HomePage = () => {
   return (
@@ -10,7 +11,7 @@ const HomePage = () => {
       <Header />
       <Slider />
       <ProductionHouse />
-      <GenreMovieList />{" "}
+      <GenreMovieList /> <Footer />
     </div>
   );
 };
