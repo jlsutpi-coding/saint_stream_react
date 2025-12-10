@@ -19,9 +19,17 @@ const getMovieByGenreId = (id) => {
 const getMovieDeatail = (id, media_type) => {
   return axios.get(`${movieBaseUrl}/${media_type}/${id}?api_key=${apiKey}`);
 };
+
+const getCastForDetail = (id, media_type) => {
+  return axios.get(
+    `${movieBaseUrl}/${media_type}/${id}/credits?api_key=${apiKey}`
+  );
+};
+
 export default {
   getTrendingVideos,
   getMovieByGenreId,
   IMAGE_BASE_URL,
   getMovieDeatail,
+  getCastForDetail,
 };

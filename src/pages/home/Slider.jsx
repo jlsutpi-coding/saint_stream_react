@@ -43,8 +43,7 @@ const Slider = () => {
         className=" no-scrollbar flex overflow-x-auto w-full px-16 py-4 scroll-smooth "
         ref={elementRef}
       >
-        {movieList?.map((item, index) => {
-          if (index > 17) console.log(item);
+        {movieList?.map((item) => {
           return (
             <img
               onClick={() => navigate(`/${item.media_type}/${item.id}`)}

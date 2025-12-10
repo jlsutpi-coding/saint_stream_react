@@ -17,10 +17,10 @@ const Header = () => {
   const menu = [
     { name: "HOME", icon: HiHome, link: "/" },
     { name: "SEARCH", icon: HiMagnifyingGlass },
-    { name: "WATCH LIST", icon: HiPlus },
+    { name: "WATCH LIST", icon: HiPlus, link: "/watch_list" },
     { name: "ORIGINALS", icon: HiStar },
-    { name: "MOVIES", icon: HiPlayCircle },
-    { name: "SERIES", icon: HiTv },
+    { name: "MOVIES", icon: HiPlayCircle, link: "/movie" },
+    { name: "SERIES", icon: HiTv, link: "series" },
   ];
   return (
     <div className=" flex items-center  justify-between p-5 bg-transparent">
@@ -39,7 +39,12 @@ const Header = () => {
         <div className=" hidden md:flex gap-8 items-center">
           {menu.map((item) => {
             return (
-              <HeaderItem key={item.name} name={item.name} Icon={item.icon} />
+              <HeaderItem
+                key={item.name}
+                link={item?.link}
+                name={item.name}
+                Icon={item.icon}
+              />
             );
           })}
         </div>
