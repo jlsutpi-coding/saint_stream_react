@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import GlobalApi from "../../Services/GlobalApi";
 import { HiOutlineUserCircle } from "react-icons/hi2";
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
+import GlobalApi from "../../services/GlobalApi";
 
 const DetailInformation = ({ detail, media_type }) => {
   const [cast, setCast] = useState();
@@ -19,11 +19,9 @@ const DetailInformation = ({ detail, media_type }) => {
   }, [detail.id, media_type]);
 
   const onScrollRight = (element) => {
-    // const width = elementRef..clientWidth;
     element.scrollLeft += element.clientWidth;
   };
   const onScrollLeft = (element) => {
-    // const width = elementRef..clientWidth;
     element.scrollLeft -= element.clientWidth;
   };
 
@@ -50,7 +48,7 @@ const DetailInformation = ({ detail, media_type }) => {
         </h4>
         <div
           ref={elementRef}
-          className="  overflow-x-auto no-scrollbar w-full items-center flex gap-6  no-scrollbar  scroll-smooth"
+          className="  overflow-x-auto  w-full items-center flex gap-6  no-scrollbar  scroll-smooth"
         >
           {cast.map((item) => {
             return (

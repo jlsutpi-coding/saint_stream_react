@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
-import GlobalApi from "../../Services/GlobalApi";
 import { useParams } from "react-router-dom";
 import DetailInformation from "./DetailInformation";
+import Similar from "./Similar";
+import GlobalApi from "../../services/GlobalApi";
 
 const Detail = () => {
   const { movie_id, media_type } = useParams();
@@ -92,6 +93,7 @@ const Detail = () => {
         </div>
       </div>
       <DetailInformation detail={detail} media_type={media_type} />
+      <Similar media_type={media_type} id={detail.id} />
     </div>
   );
 };
