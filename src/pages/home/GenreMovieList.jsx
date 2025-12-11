@@ -1,10 +1,10 @@
-import GenreList from "../../constant/GenreList";
+import GenreList from "../../data/GenreList";
 import MovieList from "./MovieList";
 
 const GenreMovieList = () => {
   return (
     <div>
-      {GenreList.genere.map((item, index) => {
+      {GenreList.GENRES.map((item, index) => {
         return (
           index <= 4 && (
             <div key={item.id} className="p-8 px-8 md:px-16 ">

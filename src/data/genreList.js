@@ -1,4 +1,4 @@
-const genere = [
+const GENRES = [
   {
     id: 28,
     name: "Action",
@@ -78,5 +78,5 @@ const genere = [
 ];
 
 export default {
-  genere,
+  GENRES,
 };

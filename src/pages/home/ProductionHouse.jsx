@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import { PRODUCTION_COMPANIES } from "../../constant/Companies";
+import { PRODUCTION_COMPANIES } from "../../data/Companies";
+// import { PRODUCTION_COMPANIES } from "../../data/companies";
+// import { PRODUCTION_COMPANIES } from "../../data/companies";
 
 const ProductionHouse = () => {
   return (

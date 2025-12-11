@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link, NavLink } from "react-router-dom";
 
@@ -8,18 +8,32 @@ import { HiOutlineUserCircle } from "react-icons/hi2";
 import { IoSearchOutline } from "react-icons/io5";
 import { FiBell } from "react-icons/fi";
 import { RiArrowDownSLine } from "react-icons/ri";
+import { HEADER_MENUS } from "../data/headerMenus";
 
 const Header = () => {
-  const menus = [
-    { path: "/", text: "Home" },
-    { path: "/discover", text: "Discover" },
-    { path: "/movie", text: "Movie Release" },
-    { path: "/tv", text: "Series Release" },
-    { path: "/about", text: "About" },
-  ];
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 150) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    document.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className=" px-[75px] py-[30px]  flex justify-between items-center">
+    <div
+      className={`px-[75px] py-[30px]  flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all duration-300  ${
+        isScrolled
+          ? "bg-black/70 backdrop-blur-lg shadow-md"
+          : " from-black/70 to-transparent bg-linear-to-b"
+      }`}
+    >
       {/* Logo */}
       <div>
         <Link to={"/"} className=" cursor-pointer">
@@ -29,7 +43,7 @@ const Header = () => {
 
       {/* Menu bar */}
       <div className=" flex gap-8 items-center">
-        {menus.map((item, index) => (
+        {HEADER_MENUS.map((item, index) => (
           <NavLink
             className={({ isActive }) =>
               "transition-all duration-300 leading-[100%] tracking-[0%]  text-[16px] " +
