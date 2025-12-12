@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import Header from "../../components/Header";
 import DetailInformation from "./DetailInformation";
 import Similar from "./Similar";
 import GlobalApi from "../../services/GlobalApi";
-import Footer from "../../components/Footer";
+import { FaCirclePlay } from "react-icons/fa6";
+import { CiBookmark } from "react-icons/ci";
+import { GoDownload, GoShareAndroid } from "react-icons/go";
+import { AiOutlineLike } from "react-icons/ai";
 
 const Detail = () => {
   const { movie_id, media_type } = useParams();
@@ -17,6 +19,10 @@ const Detail = () => {
       setDetail(response.data);
     };
     fetchData();
+  }, [movie_id, media_type]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, [movie_id, media_type]);
 
   if (!detail) {
@@ -42,50 +48,68 @@ const Detail = () => {
         />
 
         {/* Gradient overlay */}
-        <div className="absolute bottom-0 left-0 w-full h-[200px] bg-linear-to-b from-transparent to-[#0d0c0f]" />
+        <div className="absolute top-0 left-0 w-full h-[648px] bg-[linear-gradient(358.93deg,#0D0C0F_0.83%,rgba(13,12,15,0.85)_28.55%,rgba(13,12,15,0)_48.81%,rgba(13,12,15,0.284314)_70.66%,#0D0C0F_103.18%)] " />
 
-        {/* Content */}
-        <div className="absolute bottom-10 left-0 w-full px-[75px]">
-          <div className="flex items-end justify-between w-full">
-            {/* LEFT SECTION */}
-            <div className="text-white max-w-xl space-y-4">
-              <p className="px-3 py-auto w-fit flex items-center py-1  bg-black rounded-xl text-sm">
+        {/* </div> */}
+        <div className="absolute w-full bottom-0 z-20 h-80 flex justify-between px-[75px] items-end py-16">
+          <div className=" flex flex-col items-start gap-6">
+            {/* session info */}
+            <div className="px-4 py-1 rounded-2xl bg-[#0D0C0F] ">
+              <p className=" text-[12px] leading-5 tracking-[0.5%] font-medium">
                 {media_type === "movie" ? "movie" : "series"}
               </p>
-
-              <h1 className="text-4xl font-bold">{title}</h1>
-
-              <p className="text-gray-300 text-sm">
-                <span>{latest_release_date} .</span>
-                {detail.genres.map((item) => (
-                  <span className=" pr-2" key={item.id}>
-                    {item.name}
-                  </span>
-                ))}
+            </div>
+            {/* title and description */}
+            <div className="flex flex-col gap-2">
+              <h2 className=" font-bold text-[32px] leading-10 tracking-[0.5%]">
+                {title}
+              </h2>
+              <p className=" text-[#9CA4AB] text-[14px] leading-[22px] tracking-[0.5%] font-normal">
+                {latest_release_date}{" "}
+                {detail.genres.map((item) => {
+                  return (
+                    <span className=" pr-2" key={item.id}>
+                      {` . ${item.name}`}
+                    </span>
+                  );
+                })}
               </p>
-
-              <div className="flex gap-4">
-                <button className="cursor-pointer px-6 py-3 rounded-lg bg-[#00925D] text-white font-semibold">
-                  Continue Watching
-                </button>
-                <button className="cursor-pointer px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-white">
-                  Add Watchlist
-                </button>
-              </div>
             </div>
 
-            {/* RIGHT SECTION */}
-            <div className="flex gap-4">
-              <button className="cursor-pointer px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-white">
+            <div className=" flex gap-6">
+              <button className=" cursor-pointer px-6 py-3 rounded-[10px] flex items-center gap-2.5 bg-[#00925D] ">
+                <FaCirclePlay size={22} />
+                <span className="text-[14px] font-bold leading-[22px] tracking-[0.5%] text-[#F9F9F9]">
+                  Watch Now
+                </span>
+              </button>
+              <button className=" cursor-pointer px-6 py-3 rounded-[10px] flex items-center gap-2.5 bg-transparent border border-white ">
+                <CiBookmark size={22} />
+                <span className="text-[14px] font-bold leading-[22px] tracking-[0.5%] text-[#F9F9F9]">
+                  Add Watch List
+                </span>
+              </button>
+            </div>
+          </div>
+          <div className="flex gap-6 items-center">
+            <button className=" cursor-pointer  bg-[#0D0C0F] px-6 py-3 flex items-center gap-2.5 rounded-[10px] border border-white  text-[#F9F9F9]">
+              <GoDownload size={22} />
+              <span className="text-[14px] font-bold leading-[22px] tracking-[0.5%]">
                 Download
-              </button>
-              <button className="cursor-pointer px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-white">
+              </span>
+            </button>
+            <button className=" cursor-pointer  bg-[#0D0C0F] px-6 py-3 flex items-center gap-2.5 rounded-[10px] border border-white  text-[#F9F9F9]">
+              <GoShareAndroid size={22} />
+              <span className="text-[14px] font-bold leading-[22px] tracking-[0.5%]">
                 Share
-              </button>
-              <button className="cursor-pointer px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-white">
+              </span>
+            </button>
+            <button className=" cursor-pointer  bg-[#0D0C0F] px-6 py-3 flex items-center gap-2.5 rounded-[10px] border border-white  text-[#F9F9F9]">
+              <AiOutlineLike size={22} />
+              <span className="text-[14px] font-bold leading-[22px] tracking-[0.5%]">
                 Like
-              </button>
-            </div>
+              </span>
+            </button>
           </div>
         </div>
       </div>

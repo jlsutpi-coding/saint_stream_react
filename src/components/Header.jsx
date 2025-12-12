@@ -28,7 +28,7 @@ const Header = () => {
       className={`px-[75px] py-[30px]  flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all duration-300 
          ${
            isScrolled
-             ? "bg-black shadow-md"
+             ? "bg-[#0D0C0F] shadow-md"
              : " from-black/70 to-transparent bg-linear-to-b"
          }`}
     >
