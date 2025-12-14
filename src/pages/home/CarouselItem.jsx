@@ -44,7 +44,7 @@ const CarouselItem = ({ movie, genres }) => {
               </p>
             </div>
             <div className="flex gap-6">
-              <button className="px-6 py-3 rounded-[10px] bg-[#00925D] flex items-center gap-2.5">
+              <button className="px-6 py-3 rounded-[10px] bg-primary flex items-center gap-2.5">
                 <FaCirclePlay size={22} />
                 <span className="font-bold text-[#F9F9F9]">Watch Now</span>
               </button>

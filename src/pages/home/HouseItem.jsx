@@ -9,7 +9,10 @@ const HouseItem = ({ item }) => {
     const video = videoRef.current;
     if (video) {
       video.currentTime = 0;
-      video.play();
+      video.play().catch(() => {
+        // autoplay blocked (normal behavior)
+        // you can optionally show a play icon here
+      });
     }
   };
 

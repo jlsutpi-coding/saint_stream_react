@@ -64,7 +64,7 @@ const Hero = ({ detail, media_type }) => {
           </div>
 
           <div className=" flex gap-6">
-            <button className=" cursor-pointer px-6 py-3 rounded-[10px] flex items-center gap-2.5 bg-[#00925D] ">
+            <button className=" cursor-pointer px-6 py-3 rounded-[10px] flex items-center gap-2.5 bg-primary ">
               <FaCirclePlay size={22} />
               <span className="text-[14px] font-bold leading-[22px] tracking-[0.5%] text-[#F9F9F9]">
                 Watch Now

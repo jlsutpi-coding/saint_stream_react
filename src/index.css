@@ -16,3 +16,7 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Edge */
 }
+
+@theme {
+  --color-primary: #00925d;
+}

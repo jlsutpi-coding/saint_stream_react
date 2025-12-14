@@ -14,6 +14,13 @@ const getMovieByGenreId = (id) => {
   return axios.get(`${movieGenreBaseUrl}?api_key=${apiKey}&with_genres=${id}`);
 };
 
+const getGenres = (media_type) => {
+  return axios.get(
+    `${movieBaseUrl}/genre/${media_type}/list?api_key=${apiKey}`
+  );
+};
+
+// Detail page
 const getMovieDeatail = (id, media_type) => {
   return axios.get(`${movieBaseUrl}/${media_type}/${id}?api_key=${apiKey}`);
 };
@@ -30,12 +37,6 @@ const getSimilar = (id, media_type) => {
   );
 };
 
-const getGenres = (media_type) => {
-  return axios.get(
-    `${movieBaseUrl}/genre/${media_type}/list?api_key=${apiKey}`
-  );
-};
-
 const getByCompany = (media_type, compamyId) => {
   return axios.get(`${movieBaseUrl}/discover/${media_type}`, {
     params: {
@@ -45,14 +46,29 @@ const getByCompany = (media_type, compamyId) => {
   });
 };
 
+// const getCollection = (collection_id) => {
+//   return axios.get(
+//     `${movieBaseUrl}/collection/${collection_id}?api_key=${apiKey}`
+//   );
+// };
+
+const getEpisdoesOfSeries = (series_id, season_number) => {
+  return axios.get(
+    `${movieBaseUrl}/tv/${series_id}/season/${season_number}?api_key=${apiKey}`
+  );
+};
+
 export default {
   IMAGE_BASE_URL,
 
   getTrendingVideos,
   getMovieByGenreId,
+  getGenres,
+
+  // Detail only
   getMovieDeatail,
   getCastForDetail,
   getSimilar,
-  getGenres,
   getByCompany,
+  getEpisdoesOfSeries,
 };

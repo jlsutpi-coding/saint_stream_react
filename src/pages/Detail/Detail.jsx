@@ -5,6 +5,8 @@ import DetailInformation from "./DetailInformation";
 import Similar from "./Similar";
 import GlobalApi from "../../services/GlobalApi";
 import Hero from "./Hero";
+import Universe from "./tab/Universe";
+import Tab from "./tab/Tab";
 
 const Detail = () => {
   const { movie_id, media_type } = useParams();
@@ -30,6 +32,7 @@ const Detail = () => {
     <>
       <Hero media_type={media_type} detail={detail} />
       <DetailInformation detail={detail} media_type={media_type} />
+      <Tab detail={detail} />
       <Similar media_type={media_type} id={detail.id} />
     </>
   );
