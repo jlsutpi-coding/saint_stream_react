@@ -5,9 +5,9 @@ import Header from "./components/Header";
 
 const Template = () => {
   return (
-    <div>
+    <div className=" h-screen">
       <Header />
-      {/* <Outlet /> */}
+      <Outlet />
       {/* <Footer /> */}
     </div>
   );

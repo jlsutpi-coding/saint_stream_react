@@ -27,7 +27,7 @@ const Header = () => {
 
   return (
     <div
-      className={`xl:px-[75px] lg:px-[45px]  lg:py-[30px] md:px-[30px] px-2.5 py-[15px]  flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all duration-300 
+      className={`xl:px-[75px] lg:px-[45px]   lg:py-[30px] md:px-[30px] px-5 py-[15px]  flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all duration-300 
          ${
            isScrolled
              ? "bg-[#0D0C0F] shadow-md"

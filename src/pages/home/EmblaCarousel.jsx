@@ -13,7 +13,7 @@ const EmblaCarousel = (props) => {
   const { slides, options } = props;
 
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    Autoplay({ playOnInit: true, delay: 4000 }),
+    Autoplay({ playOnInit: false, delay: 4000 }),
   ]);
   const [genresMovie, setGenresMovie] = useState([]);
   const [genresSeries, setGenresSeries] = useState([]);
@@ -34,7 +34,7 @@ const EmblaCarousel = (props) => {
 
   return (
     <section className="embla  z-30 ">
-      <div className="embla__viewport h-[600px] " ref={emblaRef}>
+      <div className="embla__viewport lg:h-[600px] " ref={emblaRef}>
         <div className="embla__container ">
           {slides.map((movie) => (
             <div className="embla__slide" key={movie.id}>

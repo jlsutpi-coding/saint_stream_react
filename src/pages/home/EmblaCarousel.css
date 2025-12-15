@@ -62,3 +62,21 @@
 .embla__dot--selected:after {
   box-shadow: inset 0 0 0 0.2rem var(--text-body);
 }
+
+@media (max-width: 768px) {
+  .embla__controls {
+    margin-inline: 16px;
+  }
+  .embla__dots {
+    margin: 0;
+    padding-inline: 10px;
+  }
+  .embla__dot {
+    width: 10px;
+    height: 10px;
+  }
+  .embla__dot:after {
+    width: 10px;
+    height: 10px;
+  }
+}
