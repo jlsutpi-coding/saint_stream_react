@@ -21,7 +21,7 @@ const Tab = ({ detail }) => {
     }
 
     // Reviews always available
-    result.Reviews = <Reviews detail={detail} />;
+    // result.Reviews = <Reviews detail={detail} />;
     return result;
   }, [detail]);
 
