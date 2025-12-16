@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 
-import LargeMovieCard from "./LargeMovieCard";
-import MovieCard from "./MovieCard";
 import GlobalApi from "../../services/GlobalApi";
+import RowMovieCard from "../../components/RowMoiveCard";
+import ColMovieCard from "../../components/ColMovieCard";
 
 const screenWidth = window.innerWidth;
 
@@ -29,7 +29,6 @@ const MovieList = ({ genreId, index }) => {
   const slideLeft = (element) => {
     element.scrollLeft -= screenWidth - 110;
   };
-
   return (
     <div className="relative">
       {/* left arrow */}
@@ -52,19 +51,25 @@ const MovieList = ({ genreId, index }) => {
         ref={elementRef}
         className="flex overflow-x-auto  gap-10 no-scrollbar  pt-5 pb-10 px-3 scroll-smooth"
       >
-        {movieList.map((item) => (
-          <Link
-            className=" flex shrink-0"
-            to={`/movie/${item.id}`}
-            key={item.id}
-          >
-            {index % 3 === 0 ? (
-              <LargeMovieCard item={item} />
-            ) : (
-              <MovieCard item={item} />
-            )}
-          </Link>
-        ))}
+        {movieList.map((item) => {
+          console.log(item);
+          return (
+            <Link
+              className=" flex shrink-0"
+              to={`/movie/${item.id}`}
+              key={item.id}
+            >
+              {index % 3 === 0 ? (
+                <RowMovieCard
+                  item={item}
+                  media_type={item.title ? "movie" : "tv"}
+                />
+              ) : (
+                <ColMovieCard item={item} />
+              )}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
