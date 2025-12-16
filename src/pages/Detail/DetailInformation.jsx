@@ -9,37 +9,44 @@ import {
 import GlobalApi from "../../services/GlobalApi";
 
 const DetailInformation = ({ detail, media_type }) => {
-  const [cast, setCast] = useState();
+  const { id, overview } = detail;
+
+  const [cast, setCast] = useState([]);
   const elementRef = useRef();
 
   useEffect(() => {
     const fetchCast = async () => {
-      const response = await GlobalApi.getCastForDetail(detail.id, media_type);
+      const response = await GlobalApi.getCastForDetail(id, media_type);
       setCast(response.data.cast);
     };
+
     fetchCast();
-  }, [detail.id, media_type]);
+  }, [id, media_type]);
 
   const onScrollRight = (element) => {
+    if (!element) return;
     element.scrollLeft += element.clientWidth;
   };
   const onScrollLeft = (element) => {
+    if (!element) return;
     element.scrollLeft -= element.clientWidth;
   };
-
-  if (!cast) {
-    return;
-  }
+  if (!cast || !detail) return null;
 
   return (
-    <div className=" flex flex-col px-[75px] gap-6 pt-[30px] pb-10 ">
+    <div className=" flex flex-col px-5  md:px-[45px] lg:px-[75px] gap-3 lg:gap-6 pt-[15px] lg:pt-[30px] pb-5 lg:pb-10 ">
       {/* Story Line */}
       <div className="">
-        <h4 className=" mb-4 font-bold text-[18px] leading-[26px] tracking-[0.12px]">
+        <h4 className=" mb-4 font-bold  lg:text-[18px] leading-[26px] tracking-[0.12px]">
           Story Line
         </h4>
-        <p className="text-[16px] font-medium leading-6 tracking-[0.5%] text-[#9CA4AB]">
-          {detail.overview}
+        <p className=" hidden md:block text-[16px] font-medium leading-6 tracking-[0.5%] text-[#9CA4AB]">
+          {overview}
+        </p>
+        <p className=" block md:hidden text-[16px] font-medium leading-6 tracking-[0.5%] text-[#9CA4AB]">
+          {overview && overview.length > 120
+            ? overview.slice(0, 180) + "..."
+            : overview}
         </p>
       </div>
 
@@ -81,16 +88,18 @@ const DetailInformation = ({ detail, media_type }) => {
         </div>
 
         {/* left arrow */}
-        <div className="absolute w-[167px] bg-[linear-gradient(90deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)] flex justify-start h-12   z-20 left-[-70px] pl-5 bottom-1 items-center">
+        <div className=" lg:flex hidden absolute w-[167px] bg-[linear-gradient(90deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)]  justify-start h-12   z-20 left-[-70px] pl-5 bottom-1 items-center">
           <MdOutlineKeyboardArrowLeft
+            aria-label="Scroll cast left"
             onClick={() => onScrollLeft(elementRef.current)}
             className=" bg-[#28262D] hover:bg-[#7b7a7d] text-white w-7 h-7 rounded-full cursor-pointer"
           />
         </div>
 
         {/* right arrow */}
-        <div className="absolute w-[167px] flex justify-end h-12 bg-[linear-gradient(269.96deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)]  z-20 right-[-70px] bottom-1 pr-5 items-center">
+        <div className=" lg:flex hidden absolute w-[167px]  justify-end h-12 bg-[linear-gradient(269.96deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)]  z-20 right-[-70px] bottom-1 pr-5 items-center">
           <MdOutlineKeyboardArrowRight
+            aria-label="Scroll cast right"
             onClick={() => onScrollRight(elementRef.current)}
             className=" bg-[#28262D] hover:bg-[#7b7a7d] text-white w-7 h-7 rounded-full cursor-pointer"
           />
