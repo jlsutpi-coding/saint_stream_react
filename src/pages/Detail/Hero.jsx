@@ -54,9 +54,7 @@ const Hero = ({ detail, media_type }) => {
           </div>
           {/* title and description */}
           <div className="flex flex-col gap-2">
-            <h2 className="font-bold  md:text-[24px] text-[20px] lg:text-[32px]">
-              {title}
-            </h2>
+            <h2 className="font-bold  text-[24px]  lg:text-[32px]">{title}</h2>
             <p className=" text-[#9CA4AB] lg:text-[14px] text-[12px] font-normal leading-[22px] tracking-[0.5%]">
               {runningTime
                 ? runningTime

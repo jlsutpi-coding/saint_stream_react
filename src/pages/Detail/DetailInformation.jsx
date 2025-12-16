@@ -50,61 +50,66 @@ const DetailInformation = ({ detail, media_type }) => {
         </p>
       </div>
 
-      {/* Top Cast */}
-      <div className="relative">
-        <h4 className=" mb-4 font-bold text-[18px] leading-[26px] tracking-[0.12px]">
-          Top Cast
-        </h4>
+      {cast.length > 0 && (
+        <div className="relative">
+          <h4 className=" mb-4 font-bold text-[18px] leading-[26px] tracking-[0.12px]">
+            Top Cast
+          </h4>
 
-        {/* Cater images */}
-        <div
-          ref={elementRef}
-          className="  overflow-x-auto  w-full items-center flex gap-6  no-scrollbar  scroll-smooth"
-        >
-          {cast.map((item) => {
-            return (
-              <div key={item.id} className=" flex gap-3  shrink-0 items-center">
-                {item.profile_path ? (
-                  <img
-                    src={`${GlobalApi.IMAGE_BASE_URL}/${item.profile_path}`}
-                    alt="actor-photo"
-                    className=" rounded-full w-12 h-12 object-cover overflow-hidden "
-                  />
-                ) : (
-                  <HiOutlineUserCircle className=" rounded-full w-14 h-14 object-cover overflow-hidden " />
-                )}
+          {/* Cater images */}
+          <div
+            ref={elementRef}
+            className="  overflow-x-auto  w-full items-center flex gap-6  no-scrollbar  scroll-smooth"
+          >
+            {cast.map((item) => {
+              return (
+                <div
+                  key={item.id}
+                  className=" flex gap-3  shrink-0 items-center"
+                >
+                  {item.profile_path ? (
+                    <img
+                      src={`${GlobalApi.IMAGE_BASE_URL}/${item.profile_path}`}
+                      alt="actor-photo"
+                      className=" rounded-full w-12 h-12 object-cover overflow-hidden "
+                    />
+                  ) : (
+                    <HiOutlineUserCircle className=" rounded-full w-14 h-14 object-cover overflow-hidden " />
+                  )}
 
-                <div>
-                  <p className=" font-semibold text-[16px] leading-6 tracking-[0.5%] ">
-                    {item.original_name}
-                  </p>
-                  <p className=" text-[12px] leading-5 tracking-[0.5%] font-medium text-[#9CA4AB]">
-                    {item.character}
-                  </p>
+                  <div>
+                    <p className=" font-semibold text-[16px] leading-6 tracking-[0.5%] ">
+                      {item.original_name}
+                    </p>
+                    <p className=" text-[12px] leading-5 tracking-[0.5%] font-medium text-[#9CA4AB]">
+                      {item.character}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
 
-        {/* left arrow */}
-        <div className=" lg:flex hidden absolute w-[167px] bg-[linear-gradient(90deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)]  justify-start h-12   z-20 left-[-70px] pl-5 bottom-1 items-center">
-          <MdOutlineKeyboardArrowLeft
-            aria-label="Scroll cast left"
-            onClick={() => onScrollLeft(elementRef.current)}
-            className=" bg-[#28262D] hover:bg-[#7b7a7d] text-white w-7 h-7 rounded-full cursor-pointer"
-          />
-        </div>
+          {/* left arrow */}
+          <div className=" lg:flex hidden absolute w-[167px] bg-[linear-gradient(90deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)]  justify-start h-12   z-20 left-[-70px] pl-5 bottom-1 items-center">
+            <MdOutlineKeyboardArrowLeft
+              aria-label="Scroll cast left"
+              onClick={() => onScrollLeft(elementRef.current)}
+              className=" bg-[#28262D] hover:bg-[#7b7a7d] text-white w-7 h-7 rounded-full cursor-pointer"
+            />
+          </div>
 
-        {/* right arrow */}
-        <div className=" lg:flex hidden absolute w-[167px]  justify-end h-12 bg-[linear-gradient(269.96deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)]  z-20 right-[-70px] bottom-1 pr-5 items-center">
-          <MdOutlineKeyboardArrowRight
-            aria-label="Scroll cast right"
-            onClick={() => onScrollRight(elementRef.current)}
-            className=" bg-[#28262D] hover:bg-[#7b7a7d] text-white w-7 h-7 rounded-full cursor-pointer"
-          />
+          {/* right arrow */}
+          <div className=" lg:flex hidden absolute w-[167px]  justify-end h-12 bg-[linear-gradient(269.96deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)]  z-20 right-[-70px] bottom-1 pr-5 items-center">
+            <MdOutlineKeyboardArrowRight
+              aria-label="Scroll cast right"
+              onClick={() => onScrollRight(elementRef.current)}
+              className=" bg-[#28262D] hover:bg-[#7b7a7d] text-white w-7 h-7 rounded-full cursor-pointer"
+            />
+          </div>
         </div>
-      </div>
+      )}
+      {/* Top Cast */}
     </div>
   );
 };

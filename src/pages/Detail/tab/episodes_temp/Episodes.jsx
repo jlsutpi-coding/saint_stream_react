@@ -18,9 +18,9 @@ function Episodes({ detail }) {
   }, [id, season]);
 
   return (
-    <div className=" py-10 ">
+    <div className=" md:py-7 py-10 ">
       {/* header */}
-      <div className="mb-6 flex justify-between items-center ">
+      <div className=" mb-6 flex justify-between items-center ">
         <h4 className=" font-bold text-[24px] leading-8 tracking-[0.5%]">
           {season}-{" "}
           {seasons.find((item) => item.season_number === season)?.episode_count}{" "}
@@ -34,12 +34,11 @@ function Episodes({ detail }) {
         />
       </div>
       {/* eposides list */}
-      {/* <div className="flex overflow-x-auto no-scrollbar scroll-smooth gap-4"></div> */}
       <HorizontalScroller>
         {episodes.map((episode) => (
           <div
             key={episode.id}
-            className=" w-[301px] h-[197px] rounded-2xl overflow-hidden relative cursor-pointer shrink-0"
+            className="  lg:w-[301px] h-[197px] rounded-2xl overflow-hidden relative cursor-pointer shrink-0"
           >
             <img
               src={`${GlobalApi.IMAGE_BASE_URL}/${episode.still_path}`}

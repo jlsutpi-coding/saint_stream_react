@@ -36,7 +36,7 @@ const CarouselItem = ({ movie, genres }) => {
             </div>
 
             <div className="flex flex-col gap-1 md:gap-2">
-              <h2 className="font-bold  md:text-[24px] text-[20px] lg:text-[32px]">
+              <h2 className="font-bold  text-[24px] lg:text-[32px]">
                 {media_type === "movie" ? movie.title : movie.name}
               </h2>
 

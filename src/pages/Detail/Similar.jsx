@@ -20,7 +20,7 @@ const Similar = ({ media_type, id }) => {
   if (!similar) return;
 
   return (
-    <div className="relative lg:py-10 md:py-7 py-3 px-5  md:px-[45px] lg:px-[75px] border border-[#ffffff1a]   ">
+    <div className="relative lg:py-10 md:py-7 py-8 px-5  md:px-[45px] lg:px-[75px] border border-[#ffffff1a]   ">
       {/* Header */}
       <h4 className=" mb-6 text-[#f9f9f9] font-bold text-[24px] leading-8 tracking-[0.5%] ">
         Similar {media_type} for you
