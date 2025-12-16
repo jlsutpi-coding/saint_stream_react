@@ -28,7 +28,7 @@ const Tab = ({ detail }) => {
   const activeTab = selected ?? Object.keys(TABS)[0];
 
   return (
-    <div className=" px-[75px] pt-[30px]">
+    <div className=" px-5  md:px-[45px] lg:px-[75px] pt-5 lg:pt-[30px]">
       <nav className=" flex gap-6 items-center">
         {Object.keys(TABS).map((item, index) => (
           <div

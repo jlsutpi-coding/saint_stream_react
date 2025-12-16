@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 import GlobalApi from "../../services/GlobalApi";
-import SimilarCard from "./SimilarCard";
 import HorizontalScroller from "../../components/HorizontalScroller";
+import RowMovieCard from "../../components/RowMoiveCard";
 
 const Similar = ({ media_type, id }) => {
   const [similar, setSimilar] = useState([]);
@@ -20,7 +20,7 @@ const Similar = ({ media_type, id }) => {
   if (!similar) return;
 
   return (
-    <div className="relative py-10 px-[75px] border border-[#ffffff1a]   ">
+    <div className="relative lg:py-10 md:py-7 py-3 px-5  md:px-[45px] lg:px-[75px] border border-[#ffffff1a]   ">
       {/* Header */}
       <h4 className=" mb-6 text-[#f9f9f9] font-bold text-[24px] leading-8 tracking-[0.5%] ">
         Similar {media_type} for you
@@ -29,7 +29,7 @@ const Similar = ({ media_type, id }) => {
       {/* Horizontal Scroll */}
       <HorizontalScroller>
         {similar.map((item) => (
-          <SimilarCard media_type={media_type} item={item} key={item.id} />
+          <RowMovieCard media_type={media_type} item={item} key={item.id} />
         ))}
       </HorizontalScroller>
     </div>

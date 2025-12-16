@@ -28,16 +28,18 @@ const HorizontalScroller = ({ children }) => {
       </div>
 
       {/* Scroll left button */}
-      <div className="absolute z-20 h-53 flex items-center bg-[linear-gradient(89.96deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)] bottom-[10%] py-[72px] px-5 -left-[70px]">
+      <div className="absolute z-20 h-53 hidden lg:flex items-center bg-[linear-gradient(89.96deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)] bottom-[10%] py-[72px] px-5 -left-[70px]">
         <MdOutlineKeyboardArrowLeft
+          aria-label="Scroll card left"
           onClick={() => scrollLeft(ref.current)}
           className=" bg-[#28262D] hover:bg-[#7b7a7d] text-white w-7 h-7 rounded-full cursor-pointer"
         />
       </div>
 
       {/* scroll right button */}
-      <div className="absolute z-20 h-53  flex items-center bg-[linear-gradient(269.96deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)] bottom-[10%] py-[72px] px-5 right-[-70px] jc ">
+      <div className="absolute z-20 h-53  hidden lg:flex items-center bg-[linear-gradient(269.96deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)] bottom-[10%] py-[72px] px-5 right-[-70px] jc ">
         <MdOutlineKeyboardArrowRight
+          aria-label="Scroll card right"
           onClick={() => scrollRight(ref.current)}
           className=" bg-[#28262D] hover:bg-[#7b7a7d] text-white w-7 h-7 rounded-full cursor-pointer"
         />

@@ -3,10 +3,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { TiStarFullOutline } from "react-icons/ti";
+import GlobalApi from "../services/GlobalApi";
 
-import GlobalApi from "../../services/GlobalApi";
-
-const SimilarCard = ({ item, media_type }) => {
+const RowMovieCard = ({ item, media_type }) => {
   const [genres, setGenre] = useState();
 
   useEffect(() => {
@@ -70,4 +69,4 @@ const SimilarCard = ({ item, media_type }) => {
   );
 };
 
-export default SimilarCard;
+export default RowMovieCard;

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import GlobalApi from "../../../services/GlobalApi";
 import HorizontalScroller from "../../../components/HorizontalScroller";
-import SimilarCard from "../SimilarCard";
+import RowMovieCard from "../../../components/RowMoiveCard";
 
 const Universe = ({ detail }) => {
   const { belongs_to_collection } = detail;
@@ -28,10 +28,14 @@ const Universe = ({ detail }) => {
 
   if (!universe.length) return null;
   return (
-    <div className=" py-10 w-full">
+    <div className=" py-5 md:py-7  lg:py-10 w-full">
       <HorizontalScroller>
         {universe.map((item) => (
-          <SimilarCard key={item.id} item={item} media_type={item.media_type} />
+          <RowMovieCard
+            key={item.id}
+            item={item}
+            media_type={item.media_type}
+          />
         ))}
       </HorizontalScroller>
     </div>
