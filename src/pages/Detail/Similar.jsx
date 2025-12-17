@@ -15,8 +15,6 @@ const Similar = ({ media_type, id }) => {
     fetchSimilar();
   }, [id, media_type]);
 
-  console.log(similar);
-
   if (!similar) return;
 
   return (
@@ -27,11 +25,13 @@ const Similar = ({ media_type, id }) => {
       </h4>
 
       {/* Horizontal Scroll */}
-      <HorizontalScroller>
-        {similar.map((item) => (
-          <RowMovieCard media_type={media_type} item={item} key={item.id} />
-        ))}
-      </HorizontalScroller>
+      <div className="w-full">
+        <HorizontalScroller>
+          {similar.map((item) => (
+            <RowMovieCard media_type={media_type} item={item} key={item.id} />
+          ))}
+        </HorizontalScroller>
+      </div>
     </div>
   );
 };

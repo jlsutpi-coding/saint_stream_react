@@ -9,7 +9,6 @@ const Universe = ({ detail }) => {
   const [universe, setUniverse] = useState([]);
 
   useEffect(() => {
-    // console.log("Universe Tab Loaded");
     if (belongs_to_collection) {
       const fetchUniverse = async () => {
         const response = await GlobalApi.getCollection(

@@ -30,9 +30,9 @@ const Company = () => {
           <h4 className="my-5 text-2xl font-extrabold">Moives</h4>
           <div className="flex flex-wrap gap-x-4 gap-5 items-center justify-start">
             {movies.map((movie) => (
-              <Link key={movie.id} to={`/movie/${movie.id}`}>
-                <Detail key={movie.id} detail={movie} />
-              </Link>
+              // <Link key={movie.id} to={`/movie/${movie.id}`}>
+              <Detail key={movie.id} detail={movie} />
+              // </Link>
             ))}
           </div>
         </div>

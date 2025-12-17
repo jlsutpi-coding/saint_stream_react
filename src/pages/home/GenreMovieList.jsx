@@ -1,10 +1,16 @@
-import GenreList from "../../data/GenreList";
+import { useContext } from "react";
+
 import MovieList from "./MovieList";
 
+import { GenresContext } from "../../Context";
+
 const GenreMovieList = () => {
+  const { genres } = useContext(GenresContext);
+
+  const genresList = genres?.["movie"] || [];
   return (
     <div>
-      {GenreList.GENRES.map((item, index) => {
+      {genresList.map((item, index) => {
         return (
           index <= 4 && (
             <div key={item.id} className="p-8 px-8 md:px-16 ">

@@ -52,22 +52,19 @@ const MovieList = ({ genreId, index }) => {
         className="flex overflow-x-auto  gap-10 no-scrollbar  pt-5 pb-10 px-3 scroll-smooth"
       >
         {movieList.map((item) => {
-          console.log(item);
           return (
-            <Link
-              className=" flex shrink-0"
-              to={`/movie/${item.id}`}
-              key={item.id}
-            >
+            <div key={item.id}>
               {index % 3 === 0 ? (
-                <RowMovieCard
-                  item={item}
-                  media_type={item.title ? "movie" : "tv"}
-                />
+                <Link to={`${item.title ? "movie" : "tv"}/${item.id}`}>
+                  <RowMovieCard
+                    item={item}
+                    media_type={item.title ? "movie" : "tv"}
+                  />
+                </Link>
               ) : (
                 <ColMovieCard item={item} />
               )}
-            </Link>
+            </div>
           );
         })}
       </div>

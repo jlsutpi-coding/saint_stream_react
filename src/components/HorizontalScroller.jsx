@@ -10,15 +10,15 @@ const HorizontalScroller = ({ children }) => {
 
   const scrollLeft = () => {
     if (ref.current) {
-      ref.current.scrollLeft -= ref.current.clientWidth;
+      ref.current.scrollLeft -= ref.current.clientWidth - 110;
     }
   };
   const scrollRight = () => {
-    ref.current.scrollLeft += ref.current.clientWidth;
+    ref.current.scrollLeft += ref.current.clientWidth + 110;
   };
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       {/* Similar detail images */}
       <div
         ref={ref}
