@@ -49,22 +49,23 @@ const MovieList = ({ genreId, index }) => {
 
       <div
         ref={elementRef}
-        className="flex overflow-x-auto  gap-10 no-scrollbar  pt-5 pb-10 px-3 scroll-smooth"
+        className="flex overflow-x-auto  gap-5 lg:gap-10 no-scrollbar pt-3 lg:pt-5 pb-10 lg:px-3 scroll-smooth"
       >
         {movieList.map((item) => {
           return (
-            <div key={item.id}>
+            <Link
+              key={item.id}
+              to={`${item.title ? "movie" : "tv"}/${item.id}`}
+            >
               {index % 3 === 0 ? (
-                <Link to={`${item.title ? "movie" : "tv"}/${item.id}`}>
-                  <RowMovieCard
-                    item={item}
-                    media_type={item.title ? "movie" : "tv"}
-                  />
-                </Link>
+                <RowMovieCard
+                  item={item}
+                  media_type={item.title ? "movie" : "tv"}
+                />
               ) : (
                 <ColMovieCard item={item} />
               )}
-            </div>
+            </Link>
           );
         })}
       </div>

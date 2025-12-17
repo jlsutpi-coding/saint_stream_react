@@ -1,11 +1,11 @@
+import { useEffect, useState } from "react";
+
 import { Outlet } from "react-router-dom";
 
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import { useEffect, useState } from "react";
 import GlobalApi from "./services/GlobalApi";
 import { GenresContext } from "./Context";
-// import { GenresContext } from "./Context";
 
 const Template = () => {
   const [genres, setGenres] = useState({
@@ -30,11 +30,13 @@ const Template = () => {
   }, []);
 
   return (
-    <GenresContext.Provider value={{ genres: genres }}>
-      <Header />
-      <Outlet />
-      <Footer />
-    </GenresContext.Provider>
+    <>
+      <GenresContext.Provider value={{ genres: genres }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </GenresContext.Provider>
+    </>
   );
 };
 

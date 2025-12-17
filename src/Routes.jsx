@@ -1,10 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import HomePage from "./pages/home/HomePage";
-import Detail from "./pages/detail/Detail";
-import Movie from "./pages/movie/Movie";
 import Template from "./Template";
+import HomePage from "./pages/home/HomePage";
+import AboutPage from "./pages/about/AboutPage";
+import DiscoverPage from "./pages/discover/DiscoverPage";
+import MoviePage from "./pages/movie/MoviePage";
+import Detail from "./pages/detail/Detail";
 import Company from "./pages/discover/Company";
+import SeriesPage from "./pages/series/SeriesPage";
 
 const router = createBrowserRouter([
   {
@@ -21,11 +24,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/movie",
-        element: <Movie />,
+        element: <MoviePage />,
       },
       {
         path: "/discover/:company_id",
         element: <Company />,
+      },
+      {
+        path: "/discover",
+        element: <DiscoverPage />,
+      },
+      {
+        path: "/about",
+        element: <AboutPage />,
+      },
+      {
+        path: "tv",
+        element: <SeriesPage />,
       },
     ],
   },

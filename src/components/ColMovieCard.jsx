@@ -1,4 +1,5 @@
 import { TiStarFullOutline } from "react-icons/ti";
+
 import GlobalApi from "../services/GlobalApi";
 
 const ColMovieCard = ({ item }) => {
@@ -12,7 +13,7 @@ const ColMovieCard = ({ item }) => {
     : name;
 
   return (
-    <div className="relative h-80 w-52 overflow-hidden hover:scale-105 transition-all duration-300  ">
+    <div className="relative h-100 w-62 overflow-hidden hover:scale-105 transition-all duration-300  ">
       <img
         src={`${GlobalApi.IMAGE_BASE_URL}/${poster_path}`}
         className="absolute inset-0 w-full h-full object-cover rounded-xl"

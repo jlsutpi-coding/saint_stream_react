@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+
 import { Link, useParams } from "react-router-dom";
+
 import GlobalApi from "../../services/GlobalApi";
-import Detail from "./Detail";
+import ColMovieCard from "../../components/ColMovieCard";
 
 const Company = () => {
   const [movies, setMovies] = useState([]);
@@ -23,27 +25,27 @@ const Company = () => {
   }, [company_id]);
 
   return (
-    <div className="h-sn text-white pt-20 px-[75px]">
+    <div className=" text-white pt-20 xl:px-[75px] lg:px-[45px]   md:px-[30px] px-5">
       {/* Movie Part */}
       {movies.length && (
-        <div className=" my-10">
+        <div className="  lg:my-10">
           <h4 className="my-5 text-2xl font-extrabold">Moives</h4>
-          <div className="flex flex-wrap gap-x-4 gap-5 items-center justify-start">
+          <div className="flex flex-wrap lg:gap-x-8 gap-4 lg:gap-8 items-center justify-center lg:justify-start">
             {movies.map((movie) => (
-              // <Link key={movie.id} to={`/movie/${movie.id}`}>
-              <Detail key={movie.id} detail={movie} />
-              // </Link>
+              <Link key={movie.id} to={`/movie/${movie.id}`}>
+                <ColMovieCard key={movie.id} item={movie} />
+              </Link>
             ))}
           </div>
         </div>
       )}
       {series.length && (
-        <div className=" my-10">
+        <div className="   lg:my-10">
           <h4 className="my-5 text-2xl font-extrabold">Series</h4>
-          <div className="flex flex-wrap gap-x-4 gap-5 items-center justify-start">
+          <div className="flex flex-wrap gap-5 lg:gap-x-8 lg:gap-8  items-center  justify-center lg:justify-start">
             {series.map((tv) => (
               <Link key={tv.id} to={`/tv/${tv.id}`}>
-                <Detail key={tv.id} detail={tv} />
+                <ColMovieCard key={tv.id} item={tv} />
               </Link>
             ))}
           </div>
